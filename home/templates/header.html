@@ -1,0 +1,99 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="{% url 'home' %}"><img src="{{info.logo.url}}" alt="" style="height: 40px;"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="{% url 'home' %}">Home</a> 
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'products' %}">Products</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Category
+          </a>
+          <ul class="dropdown-menu">
+            {% if cat %}
+              {% for item in cat %}
+                <li><a class="dropdown-item" href="{% url 'category' item.id item.slug %}">{{item.brand|title}}</a></li>
+              {% endfor %}
+             {% endif %}
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'contact' %}" class="nav-link">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'cart' %}" class="nav-link"><i class="bi bi-cart4"></i></a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            
+            {% if user.customer %}
+              <img src="{{user.customer.pix.url}}" alt="" style="height: 30px;">
+            {% endif %}
+              
+            {% if request.user %}
+            <span>Hi {{user.username}}!</span>
+            {% endif %}
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{% url 'profile' %}">Profile</a></li>
+            <li><a class="dropdown-item" href="{% url 'signout' %}">Logout</a></li> 
+          </ul>
+        </li>
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="{% url 'home' %}">Home</a> 
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'products' %}">Products</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Category
+          </a>
+          <ul class="dropdown-menu">
+            {% if cat %}
+              {% for item in cat %}
+                <li><a class="dropdown-item" href="{% url 'category' item.id item.slug %}">{{item.brand|title}}</a></li>
+              {% endfor %}
+             {% endif %}
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'contact' %}" class="nav-link">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'signin' %}" class="nav-link">Login</a>
+        </li>
+        {% endif %}
+      </ul>
+      <form action="{% url 'search' %}" class="d-flex" role="search" method="POST"> 
+        {% csrf_token %}
+        <input class="form-control me-2" name="search" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn" type="submit">Search</button>
+      </form>
+      <div class="fazzy">
+        <i class="bi bi-moon-fill"></i>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- pop up -->
+{% if messages %}
+  {% for item in messages %}
+  <div class="alert alert-success alert-dismissible fade show text-center mb-0" role="alert">
+    <strong>{{item|title}}</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  {% endfor %}
+{% endif %}
+<!-- pop up done -->

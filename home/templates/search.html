@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block header %}{% include 'header.html' %} {% endblock header %}
+{% block banner %} {% include 'banner.html' %} {% endblock banner %}
+{% block content %} 
+
+{% if items %}
+<div class="container product">
+  <h1 class="text-center bg-dark text-warning pt-2">you searched for {{items}}</h1>
+  <div class="row mb-5 mt-5">
+    {% if searched_item %}
+      {% for item in searched_item %}
+      <div class="col-12 col-md-6 col-lg-3 mt-5">
+        <div class="card text-center">
+          <a href="{% url 'detail' item.id item.slug %}"><img src="{{item.picture.url}}" class="card-img-top" alt="..." style="height: 250px;"></a>
+          <div class="card-body">
+            <h5 class="card-title">{{item.name|title}}</h5>
+            <p class="card-text">₦{{item.price}}</p>
+            <form action="{% url 'add_to_cart' %}" method="POST"> 
+              {% csrf_token %}
+              <input type="hidden" name="quantity" value="1">
+              <input type="hidden" name="carid" value="{{item.id}}">
+              <button type="submit" class="btn btn-warning">Add to Cart</button>
+            </form>
+          </div>
+        </div>
+       </div>
+      {% endfor %}
+    {% endif %}
+  </div>
+  {% else %}
+  <h3 class="text-center text-bold">your search for {{items}} is not found</h3>
+  {% endif %}
+</div>
+  
+
+{% endblock content %}
+{% block footer %} {% include 'footer.html' %} {% endblock footer %}
+    
+      

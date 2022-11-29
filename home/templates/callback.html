@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block header %}{% include 'header.html' %} {% endblock header %}
+{% block banner %} {% include 'banner.html' %} {% endblock banner %}
+{% block content %} 
+<div class="container">
+    <div class="row mt-5">
+      <div class="col-12 col-md-4 left">
+        <img src="{{userprof.pix.url}}" alt="" style="height: 200px;">
+        <h4>{{userprof.user}}</h4>
+        <ul class="list-unstyled">
+          <h2>quick links</h2>
+          <li><a href="{% url 'profile' %}"><i class="bi bi-caret-right-fill"></i>profile</a></li>
+          <li><a href="{% url 'profile_update' %}"><i class="bi bi-caret-right-fill"></i>profile update</a></li>
+          <li><a href="{% url 'password_update' %}"><i class="bi bi-caret-right-fill"></i>password update</a></li>
+        </ul>
+      </div>
+      <div class="col-12 col-md-8 right">
+        <p>dear <span>{{userprof.user}}</span> your order has been received and payment is confirmed. <br> one of our representatives
+        will contact you shortly. <br> thanks for your patronage!</p>
+      </div>
+    </div>
+   </div>
+{% endblock content %}
+{% block footer %} {% include 'footer.html' %} {% endblock footer %}
+    
+      

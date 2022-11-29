@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block header %}{% include 'header.html' %} {% endblock header %}
+{% block banner %} {% include 'banner.html' %} {% endblock banner %}
+{% block content %} 
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-12 col-md-4 left">
+      <img src="{{userprof.pix.url}}" alt="" style="height: 200px;">
+      <h4>{{userprof.user}}</h4>
+      <ul class="list-unstyled">
+        <h2>quick links</h2>
+        <li><a href="{% url 'profile' %}"><i class="bi bi-caret-right-fill"></i>profile</a></li>
+        <li><a href="{% url 'profile_update' %}"><i class="bi bi-caret-right-fill"></i>profile update</a></li>
+        <li><a href="{% url 'password_update' %}"><i class="bi bi-caret-right-fill"></i>password update</a></li>
+      </ul>
+    </div>
+    <div class="col-12 col-md-8 right">
+      <form action="{% url 'profile_update' %}" method="POST" enctype="multipart/form-data"> 
+        {% csrf_token %}
+        <div class="mb-3">
+          <input type="text" name="first_name" value="{{userprof.first_name}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="First Name">
+        </div>
+        <div class="mb-3">
+          <input type="text" name="last_name" value="{{userprof.last_name}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Last Name">
+        </div>
+        <div class="mb-3">
+          <input type="text" name="address" value="{{userprof.address}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Address">
+        </div>
+        <div class="mb-3">
+          <input type="text" name="phone" value="{{userprof.phone}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Phone">
+        </div>
+        <div class="mb-3">
+          <input type="email" name="email" value="{{userprof.email}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="email">
+        </div>
+        <div class="mb-3">
+          <label for="">Upload Image</label>
+          <input type="file" name="pix" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+        <button type="submit" class="btn btn-warning">update</button>
+      </form>
+    </div>
+  </div>
+ </div>
+{% endblock content %}
+{% block footer %} {% include 'footer.html' %} {% endblock footer %}
+    
+      

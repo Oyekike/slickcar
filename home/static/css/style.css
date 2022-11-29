@@ -1,0 +1,436 @@
+*{
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+:root{
+    --bg: white;
+    --icon: black;
+    --text: black;
+    --card: black;
+}
+.dark{
+    --bg: black;
+    --icon: white;
+    --text: white;
+    --card: black;
+    --foot: white;
+}
+body{
+    background: var(--bg) !important;
+    color: var(--text) !important;
+}
+.fazzy{
+    margin-left: 3%;
+    cursor: pointer;
+}
+/* styling navbar */
+.navbar{
+    background-color: orange;
+}
+.navbar-nav .nav-link{
+    color: black;
+    font-weight: 500;
+}
+.navbar-nav .nav-link img{
+    border-radius: 100%;
+}
+.dropdown .dropdown-menu{
+    background-color: orange;
+}
+.dropdown .dropdown-menu .dropdown-item:hover{
+    background-color: black;
+    color: white;
+}
+.collapse form button{
+    background-color: black;
+    color: white;
+}
+.collapse form button:hover{
+    background-color: black !important;
+    color: white !important;
+}
+/* styling navbar done */
+
+/* styling carousel  */
+.carousel-control-prev span i{
+    font-size: 40px;
+    color: orange;
+}
+.carousel-control-next span i{
+    font-size: 40px;
+    color: orange;
+}
+.carousel-indicators .active{
+    background-color: #ffa500 !important;
+}
+.caroimg img{
+    height: 80vh;
+}
+/* styling carousel done */
+
+/* styling content */
+.welcome h1{
+    text-transform: capitalize;
+    color: orangered;
+    font-weight: 700;
+    font-size: 50px;
+    /* border-bottom: 3px solid black; */
+}
+.benz img{
+    width: 100%;
+    height: 70vh;
+}
+.card-body{
+    color: var(--card) !important;
+}
+.home .card-body{
+    text-align: center;
+    margin-top: 15%;
+}
+.home .card{
+    border: none;
+}
+.home .card img{
+    height: 400px; 
+}
+.home .card .card-body{
+    box-shadow: 5px 10px #f0f0f0;
+    height: 42vh;
+}
+.title{
+    color: orangered;
+    text-transform: capitalize;
+}
+.title::after{
+    content: '';
+    display: block;
+    width: 180px;
+    height: 3px;
+    background-color: black;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* styling content done */
+
+/* styling footer */
+.footer{
+    background-color: #5555;
+    padding-top: 3%;
+}
+.footer h2{
+    text-transform: capitalize;
+    color: white;
+    font-size: 20px;
+}
+.footer ul a{
+    text-decoration: none;
+    color: var(--foot);
+}
+.footer ul a:hover{
+    color: orange;
+}
+.footer ul i{
+    color: orange;
+}
+.footer ul i:hover{
+    color: black;
+}
+.footer2{
+    background-color: orange;
+}
+.footer2 p{
+    font-weight: 500;
+    text-transform: capitalize;
+}
+/* styling footer done */
+
+/* styling product page */
+.banner{
+    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5)), url(../img/toyota_banner.jpg);
+    height: 40vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.product{
+    padding-bottom: 5%;
+}
+.product h1{
+    text-transform: uppercase;
+    padding-top: 3%;
+    padding-bottom: 2%;
+}
+.product .card{
+    border: 2px solid orange;
+    border-radius: 10%;
+    box-shadow: 5px 5px 15px 5px orange;
+    transition: 1s;
+}
+.product .card:hover{
+    transform: translateY(-30px)
+}
+.product .card img{
+    padding: 3%;
+    border-bottom: 4px solid orange;
+}
+.pagination a{
+    color: #ffa500;
+    font-weight: 500;
+}
+.pagination li a:hover{
+    background: #ffa500 !important;
+    color: black;
+}
+/* styling product page done */
+
+/* styling detail page */
+.det{
+    border-right: 2px solid orange;
+    height: 390px;
+}
+.det img{
+    height: 40vh !important;
+}
+.detail{
+    border: 2px solid #ffa500 !important;
+    box-shadow: 0 0 50px 0 #ffa500 !important;
+    height: 60vh !important;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+.detail .det ul i{
+    color: orange !important;
+    padding-top: 3% !important;
+}
+.detail h5{
+    text-transform: capitalize;
+    font-weight: bold;
+}
+.card-body p{
+    text-transform: capitalize;
+    font-size: 15px;
+    font-family: fantasy;
+    word-spacing: 10px;
+} 
+.card-body span{
+    font-weight: 500;
+}
+.but p{
+    font-size: 25px;
+    color: orange;
+}
+/* styling detail page done */
+
+/* styling contact page  */
+.contact h1{
+    text-transform: capitalize;
+    font-weight: 600;
+    color: orangered;
+}
+.contact form{
+    /* width: 70%; */
+    outline: 2px solid orange;
+    padding: 2%;
+}
+.map iframe{
+    height: 60vh;
+}
+/* styling contact page done */
+
+/* styling register page */
+.login{
+    width: 40% !important;
+}
+.nav-item .active{
+    background: #ffa500 !important;
+    color: black !important;
+    font-weight: 500;
+}
+.login #tab-register{
+    font-weight: 500;
+}
+.login #tab-login{
+    font-weight: 500;
+}
+.form-check #loginCheck{
+    background: #ffa500;
+    border: none;
+    color: black;
+}
+.login button{
+    width: 100%;
+    color: black;
+    background: #ffa500;
+}
+.login button:hover{
+    background: rgb(255, 186, 57) !important;
+    color: black !important;
+}
+/* styling register page done */
+
+/* styling cart  */
+.cart table{
+    width: 100%;
+    /* margin-left: 15%; */
+    /* margin-right: 15%; */
+    outline: 2px solid #ffa500;
+    border-collapse: collapse !important;
+}
+.cart thead{
+    background-color: #ffa500;
+    text-align: center;
+}
+.cart th{
+    text-transform: capitalize;
+}
+.cart tbody{
+    text-align: center;
+}
+.cart tbody i{
+    color: red;
+}
+.cart td{
+    text-transform: capitalize;
+}
+.item td{
+    border: 2px solid #ffa500;
+}
+.item td button{
+    border: none;
+}
+.subtot td{
+    font-weight: 700;
+}
+.cartbut button{
+    text-transform: capitalize;
+    margin-bottom: 10%;
+    margin-top: 10%
+}
+.cartbut button i{
+    color: white;
+}
+/* styling cart done */
+
+/* styling checkout  */
+.cart h1{
+    text-transform: capitalize;
+    color: orangered;
+}
+.total td{
+    font-weight: 700;
+    font-size: 30px;
+}
+/* styling checkout done */
+
+/* styling profile  */
+.left{
+    text-align: center;
+}
+.left img{
+    border-radius: 100%;
+    outline: 5px solid orangered;
+}
+.left h4{
+    text-transform: capitalize;
+    padding-top: 5%;
+    font-size: 20px;
+}
+.left h2{
+    text-align: center;
+    text-transform: capitalize;
+    font-size: 25px;
+    color: orangered;
+}
+.left ul{
+    padding-top: 15%;
+}
+.left ul a{
+    text-decoration: none;
+    text-transform: capitalize;
+    color: black;
+}
+.left ul a i{
+    color: #ffa500;
+}
+.right{
+    padding-top: 5%;
+}
+.right form{
+    width: 70%;
+    padding: 3%;
+    outline: 2px solid #ffa500;
+}
+.right button{
+    text-transform: capitalize;
+    width: 100%;
+}
+/* styling profile done */
+
+/* styling callback  */
+.right p{
+    text-transform: capitalize;
+    color: black;
+    font-size: 20px;
+}
+.right span{
+    color: orangered;
+    font-weight: 500;
+}
+/* styling callback done */
+
+@media (min-width: 320px) and (max-width: 768px){
+    .caroimg img{
+        height: 40vh;
+    }
+    .welcome h1{
+        text-transform: capitalize;
+        color: orangered;
+        font-weight: 700;
+        font-size: 30px;
+        /* border-bottom: 3px solid black; */
+    }
+    .title::after{
+        content: '';
+        display: block;
+        width: 90px;
+        height: 3px;
+        background-color: black;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .home .card img{
+        height: 200px;
+    }
+    .footer img{
+        height: 40px;
+    }
+    .det{
+        border-right: 2px solid orange;
+        height: 0px;
+    }
+    .det img{
+        height: 40vh !important;
+    }
+    .detrow{
+        padding-bottom: 30%;
+    }
+    .detinfo{
+        padding-top: 120%;
+    }
+    .detail{
+        border: 2px solid #ffa500 !important;
+        box-shadow: 0 0 50px 0 #ffa500 !important;
+        height: 60vh !important;
+        margin-bottom: 150%;
+        margin-top: 10%;
+    }
+    .login{
+        width: 100% !important;
+    }
+    .right form{
+        width: 100%;
+        padding: 3%;
+        outline: 2px solid #ffa500;
+    }
+}

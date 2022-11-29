@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block header %}{% include 'header.html' %} {% endblock header %}
+{% block banner %} {% include 'banner.html' %} {% endblock banner %}
+{% block content %} 
+<div class="container product">
+  <h1 class="text-center bg-dark text-warning pt-2">all products</h1>
+  <div class="row mb-5 mt-5">
+    {% if pagin %}
+      {% for item in pagin %}
+      <div class="col-12 col-md-6 col-lg-3 mt-5">
+        <div class="card text-center">
+          <a href="{% url 'detail' item.id item.slug %}"><img src="{{item.picture.url}}" class="card-img-top" alt="..." style="height: 250px;"></a>
+          <div class="card-body">
+            <h5 class="card-title">{{item.name|title}}</h5>
+            <p class="card-text">₦{{item.price}}</p>
+            <form action="{% url 'add_to_cart' %}" method="POST"> 
+              {% csrf_token %}
+              <input type="hidden" name="quantity" value="1">
+              <input type="hidden" name="carid" value="{{item.id}}">
+              <button type="submit" class="btn btn-warning">Add to Cart</button>
+            </form>
+          </div>
+        </div>
+       </div>
+      {% endfor %}
+    {% endif %}
+  </div>
+  <nav aria-label="Page navigation example">
+   <ul class="pagination justify-content-center">
+    {% if pagin.has_previous %}
+    <li class="page-item"><a class="page-link" href="?page={{pagin.previous_page_number}}">Previous</a></li>
+    {% else %}
+    <li class="page-item"><a class="page-link" href="?page=1">Previous</a></li>
+    {% endif %}
+
+    {% for item in pagin.paginator.page_range %}
+      {% if pagin.number == item %}
+      <li class="page-item"><a class="page-link" href="#">{{item}}</a></li>
+      {% else %}
+      <li class="page-item"><a class="page-link" href="?page={{item}}">{{item}}</a></li>
+      {% endif %}
+    {% endfor %}
+
+    {% if pagin.has_next %}
+    <li class="page-item"><a class="page-link" href="?page={{pagin.next_page_number}}">Next</a></li>
+    {% else %}
+    <li class="page-item"><a class="page-link" href="?page={{pagin.paginator.num_pages}}">Next</a></li>
+    {% endif %}
+   </ul>
+ </nav>
+</div>
+{% endblock content %}
+{% block footer %} {% include 'footer.html' %} {% endblock footer %}
+    
+      
